@@ -1,4 +1,6 @@
 import Parallax from 'parallax-js';
+
+var mobile = window.innerWidth < 800 ? true : false;
   
 // Init parallax on first Section #section0
 const section0 = document.getElementById('section0');
@@ -6,13 +8,15 @@ const section1 = document.getElementById('section1');
 let section1Instance;
 
 // OnLoad
-const section0Instance = new Parallax(section0, {
-  'calibrateX': true,
-  'calibrateY': true,
-  'selector': '.layer',
-  relativeInput: true,
-  hoverOnly: true
-})
+if(!mobile) {
+  var section0Instance = new Parallax(section0, {
+    'calibrateX': true,
+    'calibrateY': true,
+    'selector': '.layer',
+    relativeInput: true,
+    hoverOnly: true
+  })
+}
 
 // Animate and destroy section0
 async function section0Away(resolveAfter = 600) {
@@ -34,7 +38,7 @@ async function section0Away(resolveAfter = 600) {
   }, 400);
   
   // Garbage
-  section0Instance.destroy();
+  section0Instance?.destroy();
   setTimeout(() => {
     section0.remove();
   }, 1200);
@@ -53,7 +57,9 @@ async function section1In(resolveAfter = 700) {
     section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
   }, 700);
 
-  section1Instance = new Parallax(section1, {
+  console.log(mobile)
+  if(!mobile) {
+    section1Instance = new Parallax(section1, {
     'calibrateX': true,
     'calibrateY': true,
     'selector': '.layer',
@@ -61,6 +67,7 @@ async function section1In(resolveAfter = 700) {
     hoverOnly: true,
     pointerEvents: true
   });
+}
 
   // resolve after
   await new Promise(resolve => setTimeout(resolve, resolveAfter));

@@ -3663,18 +3663,22 @@ var _parallaxJs = _interopRequireDefault(require("parallax-js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Init parallax on first Section #section0
+var mobile = window.innerWidth < 800 ? true : false; // Init parallax on first Section #section0
+
 var section0 = document.getElementById('section0');
 var section1 = document.getElementById('section1');
 var section1Instance; // OnLoad
 
-var section0Instance = new _parallaxJs.default(section0, {
-  'calibrateX': true,
-  'calibrateY': true,
-  'selector': '.layer',
-  relativeInput: true,
-  hoverOnly: true
-}); // Animate and destroy section0
+if (!mobile) {
+  var section0Instance = new _parallaxJs.default(section0, {
+    'calibrateX': true,
+    'calibrateY': true,
+    'selector': '.layer',
+    relativeInput: true,
+    hoverOnly: true
+  });
+} // Animate and destroy section0
+
 
 function section0Away() {
   return _section0Away.apply(this, arguments);
@@ -3706,7 +3710,7 @@ function _section0Away() {
               section0.querySelector(".".concat('vineBack')).classList.add('vineBack'.concat("--away"));
             }, 400); // Garbage
 
-            section0Instance.destroy();
+            section0Instance === null || section0Instance === void 0 ? void 0 : section0Instance.destroy();
             setTimeout(function () {
               section0.remove();
             }, 1200); // resolve after
@@ -3746,21 +3750,26 @@ function _section1In() {
             setTimeout(function () {
               section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
             }, 700);
-            section1Instance = new _parallaxJs.default(section1, {
-              'calibrateX': true,
-              'calibrateY': true,
-              'selector': '.layer',
-              relativeInput: true,
-              hoverOnly: true,
-              pointerEvents: true
-            }); // resolve after
+            console.log(mobile);
 
-            _context2.next = 9;
+            if (!mobile) {
+              section1Instance = new _parallaxJs.default(section1, {
+                'calibrateX': true,
+                'calibrateY': true,
+                'selector': '.layer',
+                relativeInput: true,
+                hoverOnly: true,
+                pointerEvents: true
+              });
+            } // resolve after
+
+
+            _context2.next = 10;
             return new _promise.default(function (resolve) {
               return setTimeout(resolve, resolveAfter);
             });
 
-          case 9:
+          case 10:
           case "end":
             return _context2.stop();
         }
@@ -13060,7 +13069,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57204" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60488" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
