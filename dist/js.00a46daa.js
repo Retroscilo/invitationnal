@@ -13025,7 +13025,12 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
       var day = e.target.dataset.day;
       program.querySelector('.program--content').innerHTML = document.querySelector('.' + day).innerHTML;
     });
-  });
+  }); // mobile height 
+  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+
+  var vh = window.innerHeight * 0.01; // Then we set the value in the --vh custom property to the root of the document
+
+  document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
 })();
 },{"./lib/animations.js":"js/lib/animations.js","./lib/invitation.js":"js/lib/invitation.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -13055,7 +13060,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49216" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57204" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
