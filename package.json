@@ -23,6 +23,8 @@
     "airtable": "^0.10.1",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
-    "parallax-js": "^3.1.0"
+    "parallax-js": "^3.1.0",
+    "particles.js": "^2.0.0",
+    "tsparticles": "^1.18.11"
   }
 }

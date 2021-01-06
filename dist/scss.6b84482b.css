@@ -997,6 +997,19 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.08);
 }
 
+#loader {
+  z-index: 100;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #FCF3F7;
+}
+
+#particle {
+  position: absolute;
+  bottom: 0;
+}
+
 html {
   width: 100vw;
   height: 100vh;

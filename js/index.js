@@ -27,7 +27,9 @@ import FormHandler from './lib/invitation.js';
       let day = e.target.dataset.day;
       program.querySelector('.program--content').innerHTML = document.querySelector('.'+day).innerHTML;
     })
-  })
+  });
+
+
 
   // mobile height 
   // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
