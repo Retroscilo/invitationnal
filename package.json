@@ -25,6 +25,6 @@
     "animejs": "^3.2.1",
     "parallax-js": "^3.1.0",
     "particles.js": "^2.0.0",
-    "tsparticles": "^1.18.11"
+    "realprogress": "^2.0.0"
   }
 }

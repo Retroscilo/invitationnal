@@ -4,9 +4,37 @@
   width: 100vw;
   height: 100vh;
   background: #FCF3F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Bellerose;
+    text-align: center;
+    color: #D0739F;
+    font-size: 40px;
+  }
+
+  & svg {
+    animation: beat 1.2s infinite cubic-bezier(.78,.41,.61,2.43) alternate-reverse;
+    transition: all 0.3s;
+  }
 }
 
-#particle {
-  position: absolute;
-  bottom: 0;
+.fadeOut {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+@keyframes beat {
+  from {
+    transform: scale(1);
+  }
+  20%, 100% {
+    transform: scale(1.1);
+  }
 }

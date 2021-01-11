@@ -4,10 +4,11 @@ html(lang="fr")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, minimum-scale=1.0")
     title Invitation
+    script(defer src="./js/lib/loader.js" type="module")
     script(type="module" defer src="./js/index.js")
     link(rel="stylesheet", href="./scss/index.scss")
-    img(src="dist/hearth.svg" priority="high")
   body
+    script(scr="node_modules/realprogress/dist/realprogress.js")
     include sections/loader.pug
     div.discover Découvrir
     include sections/first_section.pug

@@ -3651,6 +3651,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.section0Away = section0Away;
 exports.section1In = section1In;
 exports.programIn = programIn;
+exports.loaderAway = loaderAway;
 exports.animateCSS = void 0;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime-corejs2/regenerator"));
@@ -3677,22 +3678,49 @@ if (!mobile) {
     relativeInput: true,
     hoverOnly: true
   });
+}
+
+function loaderAway(_x) {
+  return _loaderAway.apply(this, arguments);
 } // Animate and destroy section0
 
+
+function _loaderAway() {
+  _loaderAway = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(fadeOutDuration) {
+    var loader;
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            loader = document.getElementById('loader');
+            loader.classList.add('fadeOut');
+            setTimeout(function () {
+              loader.remove();
+            }, fadeOutDuration);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _loaderAway.apply(this, arguments);
+}
 
 function section0Away() {
   return _section0Away.apply(this, arguments);
 }
 
 function _section0Away() {
-  _section0Away = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+  _section0Away = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
     var resolveAfter,
-        _args = arguments;
-    return _regenerator.default.wrap(function _callee$(_context) {
+        _args2 = arguments;
+    return _regenerator.default.wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context.prev = _context.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            resolveAfter = _args.length > 0 && _args[0] !== undefined ? _args[0] : 600;
+            resolveAfter = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 600;
             document.querySelector('.discover').remove(); // Animation
 
             section0.querySelector('.title').classList.add('title--away');
@@ -3715,17 +3743,17 @@ function _section0Away() {
               section0.remove();
             }, 1200); // resolve after
 
-            _context.next = 12;
+            _context2.next = 12;
             return new _promise.default(function (resolve) {
               return setTimeout(resolve, resolveAfter);
             });
 
           case 12:
           case "end":
-            return _context.stop();
+            return _context2.stop();
         }
       }
-    }, _callee);
+    }, _callee2);
   }));
   return _section0Away.apply(this, arguments);
 }
@@ -3735,14 +3763,14 @@ function section1In() {
 }
 
 function _section1In() {
-  _section1In = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+  _section1In = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
     var resolveAfter,
-        _args2 = arguments;
-    return _regenerator.default.wrap(function _callee2$(_context2) {
+        _args3 = arguments;
+    return _regenerator.default.wrap(function _callee3$(_context3) {
       while (1) {
-        switch (_context2.prev = _context2.next) {
+        switch (_context3.prev = _context3.next) {
           case 0:
-            resolveAfter = _args2.length > 0 && _args2[0] !== undefined ? _args2[0] : 700;
+            resolveAfter = _args3.length > 0 && _args3[0] !== undefined ? _args3[0] : 700;
             section1.querySelector('.subject').classList.add('subject--rotated');
             section1.querySelector('.background').classList.add('background--visible');
             section1.querySelector('#invitation').classList.remove('invitation--hidden');
@@ -3750,7 +3778,6 @@ function _section1In() {
             setTimeout(function () {
               section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
             }, 700);
-            console.log(mobile);
 
             if (!mobile) {
               section1Instance = new _parallaxJs.default(section1, {
@@ -3764,30 +3791,30 @@ function _section1In() {
             } // resolve after
 
 
-            _context2.next = 10;
+            _context3.next = 9;
             return new _promise.default(function (resolve) {
               return setTimeout(resolve, resolveAfter);
             });
 
-          case 10:
+          case 9:
           case "end":
-            return _context2.stop();
+            return _context3.stop();
         }
       }
-    }, _callee2);
+    }, _callee3);
   }));
   return _section1In.apply(this, arguments);
 }
 
-function programIn(_x) {
+function programIn(_x2) {
   return _programIn.apply(this, arguments);
 }
 
 function _programIn() {
-  _programIn = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3(resolveAfter) {
-    return _regenerator.default.wrap(function _callee3$(_context3) {
+  _programIn = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4(resolveAfter) {
+    return _regenerator.default.wrap(function _callee4$(_context4) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context4.prev = _context4.next) {
           case 0:
             section1.querySelector('#invitation').classList.add('invitation--hidden');
             section1.querySelector('#program').classList.remove('program--hidden');
@@ -3797,10 +3824,10 @@ function _programIn() {
 
           case 3:
           case "end":
-            return _context3.stop();
+            return _context4.stop();
         }
       }
-    }, _callee3);
+    }, _callee4);
   }));
   return _programIn.apply(this, arguments);
 }
@@ -13069,7 +13096,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53906" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63407" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1003,13 +1003,38 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   width: 100vw;
   height: 100vh;
   background: #FCF3F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-#particle {
+#loader .text {
   position: absolute;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Bellerose;
+  text-align: center;
+  color: #D0739F;
+  font-size: 40px;
+}
+#loader svg {
+  animation: beat 1.2s infinite cubic-bezier(0.78, 0.41, 0.61, 2.43) alternate-reverse;
+  transition: all 0.3s;
 }
 
+.fadeOut {
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+@keyframes beat {
+  from {
+    transform: scale(1);
+  }
+  20%, 100% {
+    transform: scale(1.1);
+  }
+}
 html {
   width: 100vw;
   height: 100vh;

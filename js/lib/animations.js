@@ -18,6 +18,14 @@ if(!mobile) {
   })
 }
 
+async function loaderAway(fadeOutDuration) {
+  const loader = document.getElementById('loader');
+  loader.classList.add('fadeOut');
+  setTimeout(() => {
+    loader.remove();
+  }, fadeOutDuration);
+}
+
 // Animate and destroy section0
 async function section0Away(resolveAfter = 600) {
   document.querySelector('.discover').remove()
@@ -57,17 +65,16 @@ async function section1In(resolveAfter = 700) {
     section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
   }, 700);
 
-  console.log(mobile)
   if(!mobile) {
     section1Instance = new Parallax(section1, {
-    'calibrateX': true,
-    'calibrateY': true,
-    'selector': '.layer',
-    relativeInput: true,
-    hoverOnly: true,
-    pointerEvents: true
-  });
-}
+      'calibrateX': true,
+      'calibrateY': true,
+      'selector': '.layer',
+      relativeInput: true,
+      hoverOnly: true,
+      pointerEvents: true
+    });
+  }
 
   // resolve after
   await new Promise(resolve => setTimeout(resolve, resolveAfter));
@@ -107,4 +114,4 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
   });
 }
 
-export {section0Away, section1In, programIn, animateCSS};
+export {section0Away, section1In, programIn, animateCSS, loaderAway};
