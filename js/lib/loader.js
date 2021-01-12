@@ -14,7 +14,7 @@ import { loaderAway } from './animations.js'
     autoplay: true,
     update: function(anim) {
       updates++;
-      document.querySelector('.progress').innerHTML = Math.round(anim.progress)+'%';
+      document.querySelector('.progress')?.innerHTML = Math.round(anim.progress)+'%';
       if(stages.indexOf(updates) != -1) {
         animation.pause();
         if(stages.indexOf(updates) == 2) return;
