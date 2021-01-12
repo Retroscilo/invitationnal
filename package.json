@@ -8,6 +8,7 @@
     "build": "parcel build index.pug",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "browserslist": "> 0.2%",
   "keywords": [],
   "author": "",
   "license": "ISC",
