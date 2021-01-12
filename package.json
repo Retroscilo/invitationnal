@@ -16,16 +16,15 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-transform-runtime": "^7.12.1",
     "parcel-bundler": "^1.12.4",
+    "airtable": "^0.10.1",
     "pug": "^3.0.0",
     "sass": "^1.29.0"
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.12.5",
-    "airtable": "^0.10.1",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
     "parallax-js": "^3.1.0",
-    "particles.js": "^2.0.0",
-    "realprogress": "^2.0.0"
+    "particles.js": "^2.0.0"
   }
 }
