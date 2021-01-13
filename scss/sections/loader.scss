@@ -24,8 +24,7 @@
     transition: all 0.3s;
 
     @include tablet {
-      width: 200px;
-      height: 200px;
+      transform: scale(0.5);
     }
   }
 }
