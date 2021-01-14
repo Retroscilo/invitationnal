@@ -1,6 +1,7 @@
 #loader {
   z-index: 100;
   position: absolute;
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   background: #FCF3F7;
@@ -22,9 +23,14 @@
   & svg {
     animation: beat 1.2s infinite cubic-bezier(.78,.41,.61,2.43) alternate-reverse;
     transition: all 0.3s;
-
+    width: 600px;
+    
     @include tablet {
-      transform: scale(0.5);
+      width: 500px;
+    }
+    
+    @include phone {
+      width: 300px;
     }
   }
 }
