@@ -34,12 +34,11 @@
 
   &.invitation--hidden {
     left: calc(100vw) !important; 
-  }
-}
 
-.invitation--hidden {
-  transition: transform 0.8s;
-  transform: translateX(800px);
+    @include tablet {
+      left: 0 !important;
+    }
+  }
 }
 
 .inscription {
