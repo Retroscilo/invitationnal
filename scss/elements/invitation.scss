@@ -28,6 +28,10 @@
     height: calc(var(--vh, 1vh) * 100);
   }
 
+  @include phone {
+    font-size: 16px !important;
+  }
+
   & p {
     margin: 0;
   }
@@ -83,6 +87,10 @@
   color: #D0739F;
   line-height: 140%;
   transition: all 0.1s;
+
+  @include phone {
+    line-height: 190%;
+  }
 }
 
 #switch:hover {
