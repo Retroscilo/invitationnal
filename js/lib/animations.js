@@ -2,6 +2,8 @@ import Parallax from 'parallax-js';
 
 var mobile = window.innerWidth < 800 ? true : false;
 
+if(mobile) document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+
 // Init parallax on first Section #section0
 const section0 = document.getElementById('section0');
 const section1 = document.getElementById('section1');
