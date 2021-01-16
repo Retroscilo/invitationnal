@@ -8,12 +8,12 @@
   border-radius: 3px;
   transition: left 0.5s ease-in-out;
   overflow: auto;
-  padding-top: 200px;
+  padding-top: 20px;
   box-shadow: -2px 0 14px rgba($color: #000000, $alpha: 0.2);
 
   & header {
     width: 595px;
-    height: 200px;
+    height: 100px;
     top: 0;
   }
 
@@ -22,7 +22,6 @@
     height: 100%;
     left: 0 !important;
     top: 0 !important;
-    padding-top: 40px;
 
     & header {
       height: 100px;

@@ -1,14 +1,14 @@
 import Parallax from 'parallax-js';
 
 var mobile = window.innerWidth < 800 ? true : false;
-  
+
 // Init parallax on first Section #section0
 const section0 = document.getElementById('section0');
 const section1 = document.getElementById('section1');
 let section1Instance;
 
 // OnLoad
-if(!mobile) {
+if (!mobile) {
   var section0Instance = new Parallax(section0, {
     'calibrateX': true,
     'calibrateY': true,
@@ -16,6 +16,8 @@ if(!mobile) {
     relativeInput: true,
     hoverOnly: true
   })
+} else {
+  section1.style.opacity = 0;
 }
 
 async function loaderAway(fadeOutDuration) {
@@ -44,18 +46,26 @@ async function section0Away(resolveAfter = 600) {
   setTimeout(() => {
     section0.querySelector(`.${'vineBack'}`).classList.add(`${'vineBack'}--away`)
   }, 400);
-  
+
   // Garbage
   section0Instance?.destroy();
   setTimeout(() => {
     section0.remove();
   }, 1200);
-  
+
   // resolve after
   await new Promise(resolve => setTimeout(resolve, resolveAfter));
 }
 
 async function section1In(resolveAfter = 700) {
+
+  if (mobile) { 
+    section1.style.opacity = 1;
+    section1.querySelector('.subject').remove(); 
+    section1.querySelector('.background').remove();
+    return; 
+  }
+
   section1.querySelector('.subject').classList.add('subject--rotated');
   section1.querySelector('.background').classList.add('background--visible');
   section1.querySelector('#invitation').classList.remove('invitation--hidden')
@@ -65,16 +75,14 @@ async function section1In(resolveAfter = 700) {
     section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
   }, 700);
 
-  if(!mobile) {
-    section1Instance = new Parallax(section1, {
-      'calibrateX': true,
-      'calibrateY': true,
-      'selector': '.layer',
-      relativeInput: true,
-      hoverOnly: true,
-      pointerEvents: true
-    });
-  }
+  section1Instance = new Parallax(section1, {
+    'calibrateX': true,
+    'calibrateY': true,
+    'selector': '.layer',
+    relativeInput: true,
+    hoverOnly: true,
+    pointerEvents: true
+  });
 
   // resolve after
   await new Promise(resolve => setTimeout(resolve, resolveAfter));
@@ -89,7 +97,7 @@ async function programIn(resolveAfter) {
 function closeProgram(e) {
   let closeProgramButton = document.querySelector('.close--program');
   let program = document.getElementById('program');
-  if(e.target == closeProgramButton || e.path.every(node => node != program)) {
+  if (e.target == closeProgramButton || e.path.every(node => node != program)) {
     section1.querySelector('#invitation').classList.remove('invitation--hidden');
     program.classList.add('program--hidden');
     document.body.removeEventListener('click', closeProgram)
@@ -110,8 +118,8 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
       resolve('Animation ended');
     }
 
-    node.addEventListener('animationend', handleAnimationEnd, {once: true});
+    node.addEventListener('animationend', handleAnimationEnd, { once: true });
   });
 }
 
-export {section0Away, section1In, programIn, animateCSS, loaderAway};
+export { section0Away, section1In, programIn, animateCSS, loaderAway };
