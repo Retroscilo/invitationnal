@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 #invitation {
   position: absolute;
   left: calc(100vw - 600px) !important; 
@@ -12,8 +19,11 @@
   line-height: 1.6rem;
   text-align: justify;
   letter-spacing: .1rem;
+  -webkit-transition: left 0.5s ease-in-out;
+  -o-transition: left 0.5s ease-in-out;
   transition: left 0.5s ease-in-out;
-  box-shadow: 1px 1px 8px rgba($color: #000000, $alpha: 0.25);
+  -webkit-box-shadow: 1px 1px 8px rgba($color: #000000, $alpha: 0.25);
+          box-shadow: 1px 1px 8px rgba($color: #000000, $alpha: 0.25);
   border-radius: 3px;
 
   @include desktop--S {
@@ -57,22 +67,42 @@
   line-height: 40px;
   text-align: center;
   border-radius: 3px;
-  clip-path: circle(10px at 50% 90%);
+  -webkit-clip-path: circle(10px at 50% 90%);
+          clip-path: circle(10px at 50% 90%);
+  -webkit-transition: -webkit-clip-path 0.4s ease-in-out;
+  transition: -webkit-clip-path 0.4s ease-in-out;
+  -o-transition: clip-path 0.4s ease-in-out;
   transition: clip-path 0.4s ease-in-out;
+  transition: clip-path 0.4s ease-in-out, -webkit-clip-path 0.4s ease-in-out;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   padding: 10px 0 10px 10px;
   font-size: 22px;
   color: black;
   caret-color: #D0739F;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .inscription--open {
-  clip-path: circle(100%);
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
 }
 
 #switch {
@@ -80,13 +110,18 @@
   width: 150px;
   height: 40px;
   top: 88%;
-  left: 50%;transform: translateX(-50%);
+  left: 50%;-webkit-transform: translateX(-50%);-ms-transform: translateX(-50%);transform: translateX(-50%);
   border-radius: 50px;
   text-align: center;
   background: white;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: #D0739F;
   line-height: 140%;
+  -webkit-transition: all 0.1s;
+  -o-transition: all 0.1s;
   transition: all 0.1s;
 
   @include phone {
@@ -100,7 +135,8 @@
 
 .visible {
   opacity: 1;
-  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 input {
@@ -108,6 +144,22 @@ input {
   outline: none;
   border: none;
   vertical-align: middle;
+
+  &::-webkit-input-placeholder {
+    color: #EBADCA;
+  }
+
+  &::-moz-placeholder {
+    color: #EBADCA;
+  }
+
+  &:-ms-input-placeholder {
+    color: #EBADCA;
+  }
+
+  &::-ms-input-placeholder {
+    color: #EBADCA;
+  }
 
   &::placeholder {
     color: #EBADCA;
@@ -117,8 +169,12 @@ input {
 input[type="text"], input[type="number"], input[type="mail"] {
   border: 1.5px solid #D0739F;
   border-radius: 50px;
-  padding: 0 10px; padding-bottom: 8px;
+  padding: 8px 10px;
+  font-family: sans-serif;
+  font-size: 16px;
   width: 130px;
+  -webkit-transition: all 0.3s cubic-bezier(.53,1.6,.36,1.03);
+  -o-transition: all 0.3s cubic-bezier(.53,1.6,.36,1.03);
   transition: all 0.3s cubic-bezier(.53,1.6,.36,1.03);
   line-height: normal;
   height: 30px;
@@ -145,6 +201,12 @@ input[type="text"], input[type="number"], input[type="mail"] {
   }
 }
 
+@-webkit-keyframes focus {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes focus {
   to {
     stroke-dashoffset: 0;
@@ -153,11 +215,24 @@ input[type="text"], input[type="number"], input[type="mail"] {
 
 .inscription .title, .radioContainer {
   color: #D0739F;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .radioContainer:hover {
   cursor: pointer;
+}
+
+.radioContainer {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .radioContainer .radio {
@@ -176,22 +251,42 @@ input[type="text"], input[type="number"], input[type="mail"] {
   vertical-align: middle;
   margin-right: 12px;
   position: relative;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
   top: -2px;
+  -webkit-transition: border-radius .2s, border .2s, background .2s, -webkit-transform .05s linear;
+  transition: border-radius .2s, border .2s, background .2s, -webkit-transform .05s linear;
+  -o-transition: border-radius .2s, border .2s, background .2s, transform .05s linear;
   transition: border-radius .2s, border .2s, background .2s, transform .05s linear;
+  transition: border-radius .2s, border .2s, background .2s, transform .05s linear, -webkit-transform .05s linear;
 }
 
 .checked::before {
   background: #D0739F !important;
   border: 1px solid #D0739F !important;
   border-radius: 2px !important;
-  transform: scale(1.3) !important;
+  -webkit-transform: scale(1.3) !important;
+      -ms-transform: scale(1.3) !important;
+          transform: scale(1.3) !important;
+  -webkit-transition: -webkit-transform .2s cubic-bezier(.53,2.9,.36,1.03) !important;
+  transition: -webkit-transform .2s cubic-bezier(.53,2.9,.36,1.03) !important;
+  -o-transition: transform .2s cubic-bezier(.53,2.9,.36,1.03) !important;
   transition: transform .2s cubic-bezier(.53,2.9,.36,1.03) !important;
+  transition: transform .2s cubic-bezier(.53,2.9,.36,1.03), -webkit-transform .2s cubic-bezier(.53,2.9,.36,1.03) !important;
+}
+
+@-webkit-keyframes bounce {
+  to {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+  }
 }
 
 @keyframes bounce {
   to {
-    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
   }
 }
 
@@ -203,6 +298,8 @@ input[type="text"], input[type="number"], input[type="mail"] {
   border: 1px solid #D0739F;
   color: #D0739F;
   background: white;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
 
@@ -210,34 +307,38 @@ input[type="text"], input[type="number"], input[type="mail"] {
   border: 1px solid #D0739F;
   background: transparent;
   color: #D0739F;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .inscription .button:not(.disabled):hover {
   cursor: pointer;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
 } 
 
 .inscription .button::not(.disabled):active {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .programme {
-  background: #D0739F;
-  color: white;
+  background: white;
+  color: #D0739F;
+  border: .5px solid #D0739F;
   padding: 5px 12px;
   border-radius: 3px;
-  height: 40px;
-  line-height: 20px;
-  -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  height: 35px;
+  line-height: 13.5px;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .programme:hover {
   cursor: pointer;
 }
-
