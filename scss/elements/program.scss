@@ -145,7 +145,7 @@
 
 .close--program {
   position: absolute;
-  left: 50%; bottom: calc(100% - 50px);
+  left: 50%; top: calc(100% - 80px);
   transform: translateX(-50%);
   background: no-repeat url('./../ressources/second_section/close.svg');
   background-size: 40%;
@@ -155,14 +155,6 @@
   height: 50px;
   border-radius: 50px;
   transition: all 0.2s;
-
-  @include tablet {
-    bottom: calc(100% - 50px);
-  }
-
-  @include phone {
-    bottom: calc(100% - 50px);
-  }
 }
 
 .close--program:hover {
