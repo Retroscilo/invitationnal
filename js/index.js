@@ -38,4 +38,6 @@ import FormHandler from './lib/invitation.js';
   document.querySelector('.reset').addEventListener('click', function() {
     document.location.reload();
   })
+
+  window.addEventListener('resize', () => console.log(window.innerHeight))
 }) ()
