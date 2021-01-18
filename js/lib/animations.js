@@ -94,6 +94,8 @@ async function programIn(resolveAfter) {
   section1.querySelector('#invitation').classList.add('invitation--hidden');
   section1.querySelector('#program').classList.remove('program--hidden');
   setTimeout(() => document.body.addEventListener('click', closeProgram), 200);
+
+  document.querySelector('.close--program').style.position = 'fixed';
 }
 
 function closeProgram(e) {
