@@ -117,6 +117,8 @@ export default class FormHandler {
         return;
       }
     });
+
+    document.querySelector('.confirmation').style.display = 'flex';
   }
 }
 

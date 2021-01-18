@@ -3,7 +3,7 @@ import { loaderAway } from './animations.js'
 
 (function() {
   var updates = 0;
-  var stages = [randomInt(20, 50), randomInt(50, 90), randomInt(90, 120)];
+  var stages = [randomInt(20, 40), randomInt(41, 69), randomInt(70, 89)];
 
   var animation = anime({
     targets: '#loader svg path:last-child',
@@ -33,7 +33,6 @@ import { loaderAway } from './animations.js'
 
 
   document.onreadystatechange = function() {
-    console.log(document.readyState)
     if(document.readyState == 'complete') {
       animation.seek(2900)
     }

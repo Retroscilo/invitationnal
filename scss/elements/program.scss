@@ -145,7 +145,7 @@
 
 .close--program {
   position: absolute;
-  left: 50%; bottom: 100px;
+  left: 50%; bottom: calc(100% - 50px);
   transform: translateX(-50%);
   background: no-repeat url('./../ressources/second_section/close.svg');
   background-size: 40%;
@@ -157,11 +157,11 @@
   transition: all 0.2s;
 
   @include tablet {
-    bottom: 50px;
+    bottom: calc(100% - 50px);
   }
 
   @include phone {
-    bottom: 120px;
+    bottom: calc(100% - 50px);
   }
 }
 

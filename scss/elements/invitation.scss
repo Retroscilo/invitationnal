@@ -342,3 +342,42 @@ input[type="text"], input[type="number"], input[type="mail"] {
 .programme:hover {
   cursor: pointer;
 }
+
+.confirmation {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: darkgrey, $alpha: 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  & .modal {
+    padding: 10px 15px;
+    border-radius: 3px;
+    opacity: 1;
+    width: 250px;
+    height: 170px;
+    background: #FCF3F7;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: #D0739F;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & .reset {
+      background: #D0739F;
+      border-radius: 3px;
+      color: white;
+      text-align: center;
+      width: 200px;
+      margin: 0 auto;
+      margin-top: 20px;
+      height: 30px;
+      line-height: 22px;
+    }
+  }
+}
