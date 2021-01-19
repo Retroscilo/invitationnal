@@ -39,5 +39,12 @@ import FormHandler from './lib/invitation.js';
     document.location.reload();
   })
 
-  window.addEventListener('resize', () => console.log(window.innerHeight))
+  window.addEventListener('resize', () => console.log(window.innerHeight));
+
+  var mobile = window.innerWidth < 800 ? true : false;
+  if(mobile) {
+    section1.querySelector(' .subject').remove(); 
+    section1.querySelector(' .background').remove();
+    section1.querySelector(' .foreground').remove();
+  }
 }) ()

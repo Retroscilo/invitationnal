@@ -63,9 +63,6 @@ async function section1In(resolveAfter = 700) {
 
   if (mobile) { 
     section1.style.opacity = 1;
-    section1.querySelector('.subject').remove(); 
-    section1.querySelector('.background').remove();
-    section1.querySelector('.foreground').remove();
     return; 
   }
 
