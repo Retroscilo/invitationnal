@@ -16,6 +16,11 @@
     width: 595px;
     height: 100px;
     top: 0;
+    margin-bottom: 60px;
+
+    @include phone {
+      margin-bottom: 30px;
+    }
   }
 
   @include tablet {
@@ -42,6 +47,10 @@
       font-size: 18px !important;
     }
   }
+}
+
+header h1 {
+  margin-top: 40px;
 }
 
 #program.program--hidden {
@@ -89,6 +98,18 @@
 
   & sup {
     pointer-events: none;
+  }
+
+  & p.day--selected {
+    transform: scale(1.2);
+    color: #D0739F;
+  }
+
+  & p {
+    transform-origin: center;
+    font-size: 15px !important;
+    color: darkgrey;
+    transition: all 0.3s;
   }
 
   & p.day--selected::after {
@@ -145,7 +166,7 @@
 
 .close--program {
   position: absolute;
-  left: 50%; bottom: 25px;
+  left: 50%; bottom: 125px;
   transform: translateX(-50%);
   background: no-repeat url('./../ressources/second_section/close.svg');
   background-size: 40%;
@@ -155,6 +176,10 @@
   height: 50px;
   border-radius: 50px;
   transition: all 0.2s;
+
+  @include tablet {
+    bottom: 25px;
+  }
 }
 
 .close--program:hover {

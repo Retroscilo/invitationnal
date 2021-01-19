@@ -93,7 +93,7 @@ async function programIn(resolveAfter) {
   section1.querySelector('#program').classList.remove('program--hidden');
   setTimeout(() => {
     document.body.addEventListener('click', closeProgram);
-    document.querySelector('.close--program').style.position = 'fixed';
+    if(mobile) document.querySelector('.close--program').style.position = 'fixed';
   }, 200);
 }
 
