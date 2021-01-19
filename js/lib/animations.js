@@ -19,7 +19,7 @@ if (!mobile) {
     hoverOnly: true
   })
 } else {
-  section1.style.display = 'none';
+  section1.style.opacity = 0;
 }
 
 async function loaderAway(fadeOutDuration) {
@@ -65,6 +65,7 @@ async function section1In(resolveAfter = 700) {
     section1.style.opacity = 1;
     section1.querySelector('.subject').remove(); 
     section1.querySelector('.background').remove();
+    section1.querySelector('.foreground').remove();
     return; 
   }
 
