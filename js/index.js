@@ -48,14 +48,11 @@ import FormHandler from './lib/invitation.js';
     section1.querySelector(' .foreground').remove();
   }
 
-  /* var ua = window.navigator.userAgent;
+  var ua = window.navigator.userAgent;
   var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
   var webkit = !!ua.match(/WebKit/i);
   var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
   if(iOSSafari) {
-    let meta = document.createElement('meta');
-    meta.name =  "viewport";
-    meta.content = "user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi";
-    document.getElementsByTagName('head')[0].appendChild(meta);
-  } */
+    document.querySelector('#section0 .title').style.width = '17rem';
+  }
 }) ()
