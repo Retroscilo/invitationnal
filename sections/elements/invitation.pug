@@ -1,19 +1,21 @@
 #invitation.invitation--hidden.layer(data-depth="0.3")
   p Nous sommes heureux de vous inviter au pays du soleil et  des cigales pour une merveilleuse occasion... notre mariage !!! <br> <br> Nous organisons une grande fête qui se déroulera sur 3 jours et 2 nuits, du mardi 29 juin au jeudi 1er juillet 2021. Le lieu est magnifique, isolé en pleine colline provençale mais à seulement 20 minutes de la plage ! <br> <br> Nous espérons que vous réserverez quelques jours de vacances pour être à nos côtés ! <br> <br> Loïc et Audrey
   .inscription 
+    span(style="color: #D0739F") ❤ Une inscription par famille ❤
     input#nom(type="text" placeholder="Nom" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,}" title="Only letters" spell-check="false" required)
     input#prenom(type="text" placeholder="Prénom" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,}" spell-check="false" required)
     input#number(type="text" placeholder="Téléphone" pattern="[0-9- ]{10,}" spell-check="false" required)
     input#mail(type="mail" placeholder="Mail" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" spell-check="false" required)
+    textarea#comment(placeholder="Des commentaires ?" cols="5" rows="5" wrap="hard")
     .title Je serai avec vous le.s :
     .group.radioContainer
       .radio(data-value="29") Mardi 29 Juin
       .radio(data-value="30") Mercredi 30 Juin
       .radio(data-value="01") Jeudi 1<sup>er</sup> Juillet
-    .programme voir le programme des 3 jours
+    .programme Voir le programme des 3 jours
     .button.disabled S'inscrire
   #switch Je m'inscris !
   .confirmation
-    .modal Nous sommes ravi que vous vous joignez à nous ! À très bientôt !
+    .modal Nous sommes ravis que vous vous joigniez à nous ! À très bientôt !
       .reset Recharger la page
       

@@ -35,7 +35,6 @@
     left: 0 !important;
     width: 100%;
     height: 100%;
-    height: calc(var(--vh, 1vh) * 100);
   }
 
   @include phone {
@@ -60,25 +59,22 @@
   color: #D0739F;
   background: #FCF3F7;
   width: 100%;
-  height: 100%;
+  height: 105%;
   top: 0;
   left: 0;
   margin: auto;
   line-height: 40px;
   text-align: center;
   border-radius: 3px;
-  -webkit-clip-path: circle(10px at 50% 90%);
-          clip-path: circle(10px at 50% 90%);
+  -webkit-clip-path: circle(10px at 50% 85%);
+          clip-path: circle(10px at 50% 85%);
   -webkit-transition: -webkit-clip-path 0.4s ease-in-out;
   transition: -webkit-clip-path 0.4s ease-in-out;
   -o-transition: clip-path 0.4s ease-in-out;
   transition: clip-path 0.4s ease-in-out;
   transition: clip-path 0.4s ease-in-out, -webkit-clip-path 0.4s ease-in-out;
-
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -90,7 +86,7 @@
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  padding: 10px 0 10px 10px;
+  padding: 50px 0 50px 10px;
   font-size: 22px;
   color: black;
   caret-color: #D0739F;
@@ -189,8 +185,8 @@ input[type="text"], input[type="number"], input[type="mail"] {
 
   &:not(:placeholder-shown):not(:focus):invalid {
     border: 1.5px solid crimson;
-    color: crimson;
-    background: white;
+    color: white;
+    background: crimson;
   }
 
   &:not(:focus):valid {
@@ -198,6 +194,53 @@ input[type="text"], input[type="number"], input[type="mail"] {
     width: 150px;
     color: #D0739F !important;
     background: white;
+  }
+}
+
+textarea {
+  height: 30px;
+  border: 1.5px solid #D0739F;
+  border-radius: 50px;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 16px;
+  width: 180px;
+  outline: none;
+  resize: none;
+  line-height: normal;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+
+  &:placeholder-shown {
+    overflow: hidden;
+  }
+
+  &:not(:placeholder-shown):not(:focus), &:focus {
+    height: 115px;
+    width: 230px;
+    border-radius: 5px;
+    color: #D0739F;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #EBADCA;
+  }
+
+  &::-moz-placeholder {
+    color: #EBADCA;
+  }
+
+  &:-ms-input-placeholder {
+    color: #EBADCA;
+  }
+
+  &::-ms-input-placeholder {
+    color: #EBADCA;
+  }
+
+  &::placeholder {
+    color: #EBADCA;
   }
 }
 
@@ -292,12 +335,12 @@ input[type="text"], input[type="number"], input[type="mail"] {
 
 .inscription .button {
   width: 105px; height: 35px;
-  border-radius: 3px;
+  border-radius: 50px;
   text-align: center;
   line-height: 22px;
   border: 1px solid #D0739F;
-  color: #D0739F;
-  background: white;
+  color: white;
+  background: #D0739F;
   -webkit-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -323,13 +366,8 @@ input[type="text"], input[type="number"], input[type="mail"] {
 }
 
 .programme {
-  background: white;
   color: #D0739F;
-  border: .5px solid #D0739F;
-  padding: 5px 12px;
-  border-radius: 3px;
-  height: 35px;
-  line-height: 13.5px;
+  text-decoration: underline;
   -webkit-touch-callout: none !important;
   -webkit-user-select: none !important;
   -khtml-user-select: none !important;

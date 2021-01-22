@@ -2,6 +2,8 @@ import * as animations from './lib/animations.js';
 import FormHandler from './lib/invitation.js';
 
 (function() {
+  screen.orientation.lock("portrait");   // webkit only
+  screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
   document.addEventListener('click', () => animations.section0Away().then(() => animations.section1In()), { once: true });
 
   document.querySelector('#switch').addEventListener('click', () => {
@@ -47,6 +49,10 @@ import FormHandler from './lib/invitation.js';
     section1.querySelector(' .background').remove();
     section1.querySelector(' .foreground').remove();
   }
+
+  document.querySelector('#switch').addEventListener('click', function() {
+    section1.style.overflowY = 'auto';
+  })
 
   var ua = window.navigator.userAgent;
   var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
