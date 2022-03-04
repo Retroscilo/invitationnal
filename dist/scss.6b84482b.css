@@ -610,12 +610,12 @@ template {
 #invitation {
   position: absolute;
   left: calc(100vw - 600px) !important;
-  top: calc(50% - 300px) !important;
-  height: 600px;
+  top: calc(50% - 350px) !important;
+  height: 700px;
   width: 500px;
   font-size: 22px;
   background: #D0739F;
-  padding: 50px;
+  padding: 50px 0;
   font-family: Bellerose;
   color: white;
   line-height: 1.6rem;
@@ -641,6 +641,9 @@ template {
 }
 #invitation p {
   margin: 0;
+  padding: 0 30px;
+  max-height: 70vh;
+  overflow: scroll;
 }
 #invitation.invitation--hidden {
   left: calc(100vw) !important;
@@ -680,12 +683,9 @@ template {
 }
 
 #switch {
-  position: absolute;
   width: 150px;
   height: 40px;
   top: 88%;
-  left: 50%;
-  transform: translateX(-50%);
   border-radius: 50px;
   text-align: center;
   background: white;
@@ -827,6 +827,32 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   cursor: pointer;
 }
 
+.ctaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 79%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.programmeFirst {
+  width: fit-content;
+  min-width: 300.73px;
+  padding: 0 25px;
+  height: 40px;
+  top: 88%;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  text-align: center;
+  background: white;
+  user-select: none;
+  color: #D0739F;
+  line-height: 140%;
+  transition: all 0.1s;
+}
+
 #program {
   position: absolute;
   height: 110%;
@@ -841,10 +867,12 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   box-shadow: -2px 0 14px rgba(0, 0, 0, 0.2);
 }
 #program header {
-  background: linear-gradient(180deg, white 71.99%, rgba(0, 0, 0, 0));
+  background: linear-gradient(180deg, white 71.99%, rgba(255, 255, 255, 0));
   position: fixed;
+  overflow: visible;
+  z-index: 1000;
   width: 595px;
-  height: 200px;
+  height: 180px;
   top: 0;
 }
 @media (max-width: 800px) {
@@ -921,12 +949,16 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 }
 
 .program--content {
-  padding: 0 50px;
+  padding: 0 50px 100px 50px;
 }
 @media (max-width: 600px) {
   .program--content {
     padding: 0 20px;
   }
+}
+
+.program--content h1 {
+  margin: 0;
 }
 
 #program h1 {
@@ -969,9 +1001,9 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 
 .close--program {
   position: absolute;
-  left: 50%;
-  bottom: 100px;
-  transform: translateX(-50%);
+  z-index: 100;
+  left: 5%;
+  top: 20px;
   background: no-repeat url("/close.d336c031.svg");
   background-size: 40%;
   background-position: center;

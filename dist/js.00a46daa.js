@@ -3750,7 +3750,6 @@ function _section1In() {
             setTimeout(function () {
               section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
             }, 700);
-            console.log(mobile);
 
             if (!mobile) {
               section1Instance = new _parallaxJs.default(section1, {
@@ -3764,12 +3763,12 @@ function _section1In() {
             } // resolve after
 
 
-            _context2.next = 10;
+            _context2.next = 9;
             return new _promise.default(function (resolve) {
               return setTimeout(resolve, resolveAfter);
             });
 
-          case 10:
+          case 9:
           case "end":
             return _context2.stop();
         }
@@ -3792,7 +3791,8 @@ function _programIn() {
             section1.querySelector('#invitation').classList.add('invitation--hidden');
             section1.querySelector('#program').classList.remove('program--hidden');
             setTimeout(function () {
-              return document.body.addEventListener('click', closeProgram);
+              console.log('test');
+              document.body.addEventListener('click', closeProgram);
             }, 200);
 
           case 3:
@@ -3806,10 +3806,11 @@ function _programIn() {
 }
 
 function closeProgram(e) {
+  console.log(e.composedPath());
   var closeProgramButton = document.querySelector('.close--program');
   var program = document.getElementById('program');
 
-  if (e.target == closeProgramButton || e.path.every(function (node) {
+  if (e.target == closeProgramButton || e.composedPath().every(function (node) {
     return node != program;
   })) {
     section1.querySelector('#invitation').classList.remove('invitation--hidden');
@@ -13015,6 +13016,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     document.querySelector('#switch').remove();
   });
   document.querySelector('.programme').addEventListener('click', animations.programIn);
+  document.querySelector('.programmeFirst').addEventListener('click', animations.programIn);
   var formHandler = new _invitation.default();
   document.querySelectorAll('div.radio').forEach(function (radio) {
     return radio.onclick = function () {
@@ -13069,7 +13071,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60488" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63057" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
