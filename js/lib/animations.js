@@ -55,8 +55,11 @@ async function section1In(resolveAfter = 700) {
 
   setTimeout(() => {
     section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
-    mobile && document.getElementById('invitation').classList.add('is-onScreen')
   }, 700);
+
+  setTimeout(() => {
+    mobile && document.getElementById('invitation').classList.add('is-onScreen')
+  }, 1000)
 
   if(!mobile) {
     section1Instance = new Parallax(section1, {

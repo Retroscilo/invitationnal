@@ -3749,9 +3749,10 @@ function _section1In() {
             section1.querySelector('#invitation').style.transition = '';
             setTimeout(function () {
               section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
-
-              mobile && document.getElementById('invitation').classList.add('is-onScreen');
             }, 700);
+            setTimeout(function () {
+              mobile && document.getElementById('invitation').classList.add('is-onScreen');
+            }, 1000);
 
             if (!mobile) {
               section1Instance = new _parallaxJs.default(section1, {
@@ -3765,12 +3766,12 @@ function _section1In() {
             } // resolve after
 
 
-            _context2.next = 9;
+            _context2.next = 10;
             return new _promise.default(function (resolve) {
               return setTimeout(resolve, resolveAfter);
             });
 
-          case 9:
+          case 10:
           case "end":
             return _context2.stop();
         }
