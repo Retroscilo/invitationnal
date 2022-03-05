@@ -10,12 +10,20 @@ import lottie from "lottie-web";
     loop: true,
     path: "https://assets10.lottiefiles.com/packages/lf20_0yes5qep.json"
   });
-  var img = new Image();
-  img.onload = function () {
+
+  function dismissLoader () {
     document.querySelector(".loader").style.pointerEvents = "none";
     document.querySelector(".loader").style.opacity = 0;
+  }
+  var img = new Image();
+  img.onload = function () {
+    dismissLoader()
   };
   img.src = "http://www.lolo-et-lolo.com/foreground.8c2999fe.png";
+
+  setTimeout(() => {
+    dismissLoader()
+  }, 2500)
 
   document.addEventListener(
     "click",

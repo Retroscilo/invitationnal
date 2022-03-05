@@ -29876,14 +29876,21 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     path: "https://assets10.lottiefiles.com/packages/lf20_0yes5qep.json"
   });
 
+  function dismissLoader() {
+    document.querySelector(".loader").style.pointerEvents = "none";
+    document.querySelector(".loader").style.opacity = 0;
+  }
+
   var img = new Image();
 
   img.onload = function () {
-    document.querySelector(".loader").style.pointerEvents = "none";
-    document.querySelector(".loader").style.opacity = 0;
+    dismissLoader();
   };
 
   img.src = "http://www.lolo-et-lolo.com/foreground.8c2999fe.png";
+  setTimeout(function () {
+    dismissLoader();
+  }, 2500);
   document.addEventListener("click", function () {
     return animations.section0Away().then(function () {
       return animations.section1In();
