@@ -11096,7 +11096,6 @@ var FormHandler = /*#__PURE__*/function () {
       mail: 'invalid',
       day: 'invalid'
     });
-    (0, _defineProperty2.default)(this, "error", null);
     document.querySelectorAll('input').forEach(function (node) {
       return _this.watch(node);
     });
@@ -11106,6 +11105,8 @@ var FormHandler = /*#__PURE__*/function () {
 
         alert('Ton invitation à bien été envoyée');
       } else alert("Merci de vérifier que : \n - Ton nom est rempli \n - Ton prénom est bien indiqué \n - Ton mail est valide \n - Ton numéro de téléphone est valide \n - Tu nous as bien indiqué si tu venais le 23 Juillet");
+    }, {
+      once: true
     });
 
     var Airtable = require('airtable');
@@ -11164,7 +11165,6 @@ var FormHandler = /*#__PURE__*/function () {
       }
 
       this.inputState.day = document.querySelector('.checked') != null ? 'valid' : 'invalid';
-      if (!this.inputState.day) alert("N'oublie pas de nous indiquer si tu seras avec nous !");
       this.checkInputState();
     }
   }, {
@@ -11263,8 +11263,11 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
   document.querySelector('.programmeFirst').addEventListener('click', animations.programIn);
   var formHandler = new _invitation.default();
   document.querySelectorAll('div.radio').forEach(function (radio) {
-    return radio.onclick = function () {
-      radio.classList.toggle('checked');
+    return radio.onclick = function (e) {
+      document.querySelectorAll('div.radio').forEach(function (radio) {
+        return radio.classList.remove("checked");
+      });
+      e.target.classList.toggle('checked');
       formHandler.isValid(radio);
     };
   }); // Program display

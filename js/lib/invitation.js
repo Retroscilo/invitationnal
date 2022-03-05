@@ -8,15 +8,13 @@ export default class FormHandler {
     day: 'invalid'
   }
 
-  error = null
-
   constructor() {
     document.querySelectorAll('input').forEach(node => this.watch(node));
 
     document.querySelector('.button').addEventListener('click', () => {
       if (this.checkInputState()) {this.sendData(); alert('Ton invitation à bien été envoyée')}
       else alert("Merci de vérifier que : \n - Ton nom est rempli \n - Ton prénom est bien indiqué \n - Ton mail est valide \n - Ton numéro de téléphone est valide \n - Tu nous as bien indiqué si tu venais le 23 Juillet")
-    });
+    }, { once: true });
 
     var Airtable = require('airtable');
     Airtable.configure({
@@ -67,7 +65,6 @@ export default class FormHandler {
     }
 
     this.inputState.day = (document.querySelector('.checked') != null) ? 'valid' : 'invalid';
-    if(!this.inputState.day) alert("N'oublie pas de nous indiquer si tu seras avec nous !")
     this.checkInputState();
   }
 

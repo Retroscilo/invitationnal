@@ -14,8 +14,9 @@ import FormHandler from './lib/invitation.js';
   document.querySelector('.programmeFirst').addEventListener('click', animations.programIn)
 
   const formHandler = new FormHandler();
-  document.querySelectorAll('div.radio').forEach(radio => radio.onclick = () => {
-    radio.classList.toggle('checked');
+  document.querySelectorAll('div.radio').forEach(radio => radio.onclick = (e) => {
+    document.querySelectorAll('div.radio').forEach(radio => radio.classList.remove("checked"))
+    e.target.classList.toggle('checked');
     formHandler.isValid(radio);
   });
 
