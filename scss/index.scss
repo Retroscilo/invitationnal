@@ -109,3 +109,17 @@ body::before {
 .discover:hover {
   cursor: pointer;
 }
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #D0739F;
+  z-index: 99999;
+  transition: opacity .4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

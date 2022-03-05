@@ -29867,51 +29867,64 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 (function () {
-  document.addEventListener('click', function () {
+  _lottieWeb.default.loadAnimation({
+    container: document.querySelector(".loader"),
+    renderer: "svg",
+    autoplay: true,
+    loop: true,
+    path: "https://assets10.lottiefiles.com/packages/lf20_0yes5qep.json"
+  });
+
+  var img = new Image();
+
+  img.onload = function () {
+    document.querySelector(".loader").style.pointerEvents = "none";
+    document.querySelector(".loader").style.opacity = 0;
+  };
+
+  img.src = "http://www.lolo-et-lolo.com/foreground.8c2999fe.png";
+  document.addEventListener("click", function () {
     return animations.section0Away().then(function () {
       return animations.section1In();
     });
   }, {
     once: true
   });
-
-  _lottieWeb.default.stop();
-
-  document.querySelector('#switch').addEventListener('click', function () {
-    document.querySelector('.inscription').classList.toggle('inscription--open');
-    document.querySelector('.ctaContainer').style.display = "none";
-    document.querySelector('#switch').remove();
+  document.querySelector("#switch").addEventListener("click", function () {
+    document.querySelector(".inscription").classList.toggle("inscription--open");
+    document.querySelector(".ctaContainer").style.display = "none";
+    document.querySelector("#switch").remove();
   });
-  document.querySelector('.programme').addEventListener('click', animations.programIn);
-  document.querySelector('.programmeFirst').addEventListener('click', animations.programIn);
+  document.querySelector(".programme").addEventListener("click", animations.programIn);
+  document.querySelector(".programmeFirst").addEventListener("click", animations.programIn);
   var formHandler = new _invitation.default();
-  document.querySelectorAll('div.radio').forEach(function (radio) {
+  document.querySelectorAll("div.radio").forEach(function (radio) {
     return radio.onclick = function (e) {
-      document.querySelectorAll('div.radio').forEach(function (radio) {
+      document.querySelectorAll("div.radio").forEach(function (radio) {
         return radio.classList.remove("checked");
       });
-      e.target.classList.toggle('checked');
+      e.target.classList.toggle("checked");
       formHandler.isValid(radio);
     };
   }); // Program display
 
-  var program = document.getElementById('program');
-  var navButtons = document.querySelectorAll('#program nav p');
+  var program = document.getElementById("program");
+  var navButtons = document.querySelectorAll("#program nav p");
   navButtons.forEach(function (node) {
-    node.addEventListener('click', function (e) {
+    node.addEventListener("click", function (e) {
       navButtons.forEach(function (node) {
-        return node.classList.remove('day--selected');
+        return node.classList.remove("day--selected");
       });
-      e.target.classList.add('day--selected');
+      e.target.classList.add("day--selected");
       var day = e.target.dataset.day;
-      program.querySelector('.program--content').innerHTML = document.querySelector('.' + day).innerHTML;
+      program.querySelector(".program--content").innerHTML = document.querySelector("." + day).innerHTML;
     });
-  }); // mobile height 
+  }); // mobile height
   // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 
   var vh = window.innerHeight * 0.01; // Then we set the value in the --vh custom property to the root of the document
 
-  document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
+  document.documentElement.style.setProperty("--vh", "".concat(vh, "px"));
 })();
 },{"./lib/animations.js":"js/lib/animations.js","./lib/invitation.js":"js/lib/invitation.js","lottie-web":"node_modules/lottie-web/build/player/lottie.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -29941,7 +29954,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56187" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60814" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
