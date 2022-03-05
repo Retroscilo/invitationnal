@@ -1,8 +1,11 @@
 import * as animations from './lib/animations.js';
 import FormHandler from './lib/invitation.js';
+import lottie from "lottie-web"
 
 (function() {
   document.addEventListener('click', () => animations.section0Away().then(() => animations.section1In()), { once: true });
+
+  lottie.stop()
 
   document.querySelector('#switch').addEventListener('click', () => {
     document.querySelector('.inscription').classList.toggle('inscription--open');

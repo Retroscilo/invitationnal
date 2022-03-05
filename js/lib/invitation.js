@@ -1,5 +1,7 @@
 "use strict";
 var Airtable = require("airtable");
+var lottie = require("lottie-web");
+
 export default class FormHandler {
   inputState = {
     nom: "invalid",
@@ -9,16 +11,28 @@ export default class FormHandler {
     day: "invalid",
   };
 
+  anim;
+
   constructor() {
     document.querySelectorAll("input").forEach((node) => this.watch(node));
 
-    document.querySelector(".button").addEventListener("click", this.clickHandler);
+    document
+      .querySelector(".button")
+      .addEventListener("click", this.clickHandler);
 
     Airtable.configure({
       endpointUrl: "https://api.airtable.com",
       apiKey: "keynxJ5aRc7cWp5cv",
     });
     this.base = Airtable.base("appcfQ0ZWuwuSayr4");
+
+    this.anim = lottie.loadAnimation({
+      container: document.querySelector(".successGGG"),
+      renderer: "svg",
+      autoplay: false,
+      loop: false,
+      path: "https://assets6.lottiefiles.com/packages/lf20_0upeqcrr.json", // the path to the animation json
+    });
   }
 
   watch(target) {
@@ -80,16 +94,26 @@ export default class FormHandler {
   }
 
   clickHandler = () => {
-    console.log(this)
     if (this.checkInputState()) {
       this.sendData();
-      alert("Ton invitation à bien été envoyée");
-      document.querySelector(".button").removeEventListener("click", this.clickHandler)
+      document
+        .querySelectorAll("input")
+        .forEach((node) => node.classList.add("fadeOut"));
+      document.querySelector(".radioContainer").classList.add("fadeOut");
+      document.querySelector(".button").classList.add("fadeOut");
+      document.querySelector(".successGGG").style.opacity = 1;
+
+      this.anim.play();
+      anim.play();
+      document
+        .querySelector(".button")
+        .removeEventListener("click", this.clickHandler);
+      document.querySelector(".button").classList.add("isSubmitted");
     } else
       alert(
         "Merci de vérifier que : \n - Ton nom est rempli \n - Ton prénom est bien indiqué \n - Ton mail est valide \n - Ton numéro de téléphone est valide \n - Tu nous as bien indiqué si tu venais le 23 Juillet"
       );
-  }
+  };
 
   textMatch(string) {
     return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{1,}$/.test(

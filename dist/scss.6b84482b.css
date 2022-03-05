@@ -820,6 +820,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   background: #D0739F;
   transition: all 0.2s linear;
   cursor: pointer;
+  position: relative;
 }
 
 /* .inscription .disabled {
@@ -888,6 +889,44 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 .merci {
   color: #D0739F;
   font-size: 18px;
+}
+
+.successGG {
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  position: absolute;
+  top: -20.5px;
+  right: -67px;
+}
+
+.successGGG {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  pointer-events: none;
+}
+.successGGG span {
+  padding-top: 30px;
+  display: block;
+  color: #D0739F;
+}
+.successGGG svg {
+  transform: translateY(-30px) !important;
+}
+
+.isSubmitted {
+  cursor: auto;
+  background: lightgrey;
+}
+
+.fadeOut {
+  transition: opacity 0.1s ease-in-out;
+  opacity: 0;
 }
 
 #program {
