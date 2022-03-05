@@ -1004,13 +1004,13 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 }
 
 #program h2 {
-  font-size: 22px;
+  font-size: 32px;
 }
 
 a {
   color: inherit;
   display: block;
-  font-size: 18px;
+  font-size: 22px;
   margin-top: 5px;
 }
 
