@@ -691,6 +691,11 @@ template {
   color: black;
   caret-color: #D0739F;
 }
+@media (max-width: 600px) {
+  .inscription {
+    padding-bottom: 10vh;
+  }
+}
 
 .inscription--open {
   clip-path: circle(100%);
@@ -857,6 +862,11 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   left: 50%;
   transform: translateX(-50%);
 }
+@media (max-width: 600px) {
+  .ctaContainer {
+    top: 75%;
+  }
+}
 
 .programmeFirst {
   width: fit-content;
@@ -872,12 +882,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   color: #D0739F;
   line-height: 140%;
   transition: all 0.1s;
-}
-@media (max-width: 600px) {
-  .programmeFirst {
-    visibility: hidden;
-    pointer-events: none;
-  }
+  cursor: pointer;
 }
 
 #program {

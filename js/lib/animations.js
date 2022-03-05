@@ -76,7 +76,7 @@ async function section1In(resolveAfter = 700) {
 async function programIn(resolveAfter) {
   section1.querySelector('#invitation').classList.add('invitation--hidden');
   section1.querySelector('#program').classList.remove('program--hidden');
-  setTimeout(() => {console.log('test'); document.body.addEventListener('click', closeProgram)}, 200);
+  setTimeout(() => document.body.addEventListener('click', closeProgram), 200);
 }
 
 function closeProgram(e) {

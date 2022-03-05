@@ -71,6 +71,10 @@
   font-size: 22px;
   color: black;
   caret-color: #D0739F;
+
+  @include phone {
+    padding-bottom: 10vh;
+  }
 }
 
 .inscription--open {
@@ -241,6 +245,10 @@ input[type="text"], input[type="number"], input[type="mail"] {
   top: 79%;
   left: 50%;
   transform: translateX(-50%);
+
+  @include phone {
+    top: 75%;
+  }
 }
 
 .programmeFirst {
@@ -257,10 +265,6 @@ input[type="text"], input[type="number"], input[type="mail"] {
   color: #D0739F;
   line-height: 140%;
   transition: all 0.1s;
-
-  @include phone {
-    visibility: hidden;
-    pointer-events: none;
-  }
+  cursor: pointer;
 }
 

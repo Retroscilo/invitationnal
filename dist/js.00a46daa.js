@@ -3793,8 +3793,7 @@ function _programIn() {
             section1.querySelector('#invitation').classList.add('invitation--hidden');
             section1.querySelector('#program').classList.remove('program--hidden');
             setTimeout(function () {
-              console.log('test');
-              document.body.addEventListener('click', closeProgram);
+              return document.body.addEventListener('click', closeProgram);
             }, 200);
 
           case 3:
