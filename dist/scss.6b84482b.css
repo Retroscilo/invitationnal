@@ -649,7 +649,7 @@ template {
     top: 0 !important;
     left: 150vw !important;
     width: 100%;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(var(--vh, 1vh) * 110);
     padding-bottom: calc(var(--vh, 1vh) * 10);
   }
 }
