@@ -58,6 +58,7 @@ body {
   z-index: -1;
   overflow: hidden;
   background: linear-gradient(#D1FEF6, #FDEB9B 10%);
+  position: relative;
 }
 
 body::before {

@@ -11084,7 +11084,7 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs2/he
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Airtable = require('airtable');
+var Airtable = require("airtable");
 
 var FormHandler = /*#__PURE__*/function () {
   function FormHandler() {
@@ -11092,29 +11092,31 @@ var FormHandler = /*#__PURE__*/function () {
 
     (0, _classCallCheck2.default)(this, FormHandler);
     (0, _defineProperty2.default)(this, "inputState", {
-      nom: 'invalid',
-      prenom: 'invalid',
-      number: 'invalid',
-      mail: 'invalid',
-      day: 'invalid'
+      nom: "invalid",
+      prenom: "invalid",
+      number: "invalid",
+      mail: "invalid",
+      day: "invalid"
     });
-    document.querySelectorAll('input').forEach(function (node) {
-      return _this.watch(node);
-    });
-    document.querySelector('.button').addEventListener('click', function () {
+    (0, _defineProperty2.default)(this, "clickHandler", function () {
+      console.log(_this);
+
       if (_this.checkInputState()) {
         _this.sendData();
 
-        alert('Ton invitation à bien été envoyée');
+        alert("Ton invitation à bien été envoyée");
+        document.querySelector(".button").removeEventListener("click", _this.clickHandler);
       } else alert("Merci de vérifier que : \n - Ton nom est rempli \n - Ton prénom est bien indiqué \n - Ton mail est valide \n - Ton numéro de téléphone est valide \n - Tu nous as bien indiqué si tu venais le 23 Juillet");
-    }, {
-      once: true
     });
+    document.querySelectorAll("input").forEach(function (node) {
+      return _this.watch(node);
+    });
+    document.querySelector(".button").addEventListener("click", this.clickHandler);
     Airtable.configure({
-      endpointUrl: 'https://api.airtable.com',
-      apiKey: 'keynxJ5aRc7cWp5cv'
+      endpointUrl: "https://api.airtable.com",
+      apiKey: "keynxJ5aRc7cWp5cv"
     });
-    this.base = Airtable.base('appcfQ0ZWuwuSayr4');
+    this.base = Airtable.base("appcfQ0ZWuwuSayr4");
   }
 
   (0, _createClass2.default)(FormHandler, [{
@@ -11132,53 +11134,53 @@ var FormHandler = /*#__PURE__*/function () {
       var _this3 = this;
 
       var validate = function validate() {
-        _this3.inputState[id] = 'valid';
+        _this3.inputState[id] = "valid";
       };
 
-      var id = target.getAttribute('id');
+      var id = target.getAttribute("id");
 
       switch (id) {
-        case 'nom':
+        case "nom":
           if (this.textMatch(target.value)) validate();else {
             this.inputState[id] = "Ton nom n'est pas valide";
           }
           break;
 
-        case 'prenom':
+        case "prenom":
           if (this.textMatch(target.value)) validate();else {
-            this.inputState[id] = 'invalid';
+            this.inputState[id] = "invalid";
           }
           break;
 
-        case 'number':
+        case "number":
           if (this.numberMatch(target.value)) validate();else {
-            this.inputState[id] = 'invalid';
+            this.inputState[id] = "invalid";
           }
           break;
 
-        case 'mail':
+        case "mail":
           if (this.mailMatch(target.value)) validate();else {
-            this.inputState[id] = 'invalid';
+            this.inputState[id] = "invalid";
           }
           break;
       }
 
-      this.inputState.day = document.querySelector('.checked') != null ? 'valid' : 'invalid';
+      this.inputState.day = document.querySelector(".checked") != null ? "valid" : "invalid";
       this.checkInputState();
     }
   }, {
     key: "checkInputState",
     value: function checkInputState() {
-      var button = document.querySelector('.button');
+      var button = document.querySelector(".button");
       var test = (0, _values.default)(this.inputState).every(function (input) {
-        return input == 'valid';
+        return input == "valid";
       });
 
       if (test) {
-        button.classList.remove('disabled');
+        button.classList.remove("disabled");
         return true;
       } else {
-        button.classList.add('disabled');
+        button.classList.add("disabled");
         return this.error;
       }
     }
@@ -11201,25 +11203,25 @@ var FormHandler = /*#__PURE__*/function () {
     key: "sendData",
     value: function sendData() {
       var dataToSend = {
-        nom: '',
-        prenom: '',
-        number: '',
-        mail: '',
-        day: ''
+        nom: "",
+        prenom: "",
+        number: "",
+        mail: "",
+        day: ""
       };
       var day = [];
       (0, _keys.default)(this.inputState).forEach(function (key) {
         var node = document.getElementById(key);
         if (node) dataToSend[key] = node.value;
       });
-      document.querySelectorAll('.radio').forEach(function (radio) {
-        if (radio.classList.contains('checked')) {
+      document.querySelectorAll(".radio").forEach(function (radio) {
+        if (radio.classList.contains("checked")) {
           day.push(radio.dataset.value);
         }
       });
-      dataToSend.day = day.join(' ');
-      this.base('Coming').create([{
-        "fields": dataToSend
+      dataToSend.day = day.join(" ");
+      this.base("Coming").create([{
+        fields: dataToSend
       }], function (err, records) {
         console.log(records);
 
