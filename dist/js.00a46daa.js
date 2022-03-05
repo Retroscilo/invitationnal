@@ -3749,6 +3749,8 @@ function _section1In() {
             section1.querySelector('#invitation').style.transition = '';
             setTimeout(function () {
               section1.querySelector('.subject').style.transition = 'none'; // Parallax sanity
+
+              mobile && document.getElementById('invitation').classList.add('is-onScreen');
             }, 700);
 
             if (!mobile) {
@@ -12866,11 +12868,12 @@ var FormHandler = /*#__PURE__*/function () {
       mail: 'invalid',
       day: 'invalid'
     });
+    (0, _defineProperty2.default)(this, "error", null);
     document.querySelectorAll('input').forEach(function (node) {
       return _this.watch(node);
     });
     document.querySelector('.button').addEventListener('click', function () {
-      if (_this.checkInputState()) _this.sendData();
+      if (_this.checkInputState()) _this.sendData();else alert(_this.checkInputState());
     });
 
     var Airtable = require('airtable');
@@ -12904,24 +12907,36 @@ var FormHandler = /*#__PURE__*/function () {
 
       switch (id) {
         case 'nom':
-          if (this.textMatch(target.value)) validate();else this.inputState[id] = 'invalid';
+          if (this.textMatch(target.value)) validate();else {
+            this.inputState[id] = 'invalid';
+            this.error = "Ton nom n'est pas valide";
+          }
           break;
 
         case 'prenom':
-          if (this.textMatch(target.value)) validate();else this.inputState[id] = 'invalid';
+          if (this.textMatch(target.value)) validate();else {
+            this.inputState[id] = 'invalid';
+            this.error = "Ton prénom n'est pas valide";
+          }
           break;
 
         case 'number':
-          if (this.numberMatch(target.value)) validate();else this.inputState[id] = 'invalid';
+          if (this.numberMatch(target.value)) validate();else {
+            this.inputState[id] = 'invalid';
+            this.error = "Ton numéro de téléphone n'est pas valide";
+          }
           break;
 
         case 'mail':
-          if (this.mailMatch(target.value)) validate();else this.inputState[id] = 'invalid';
-          console.log(this.inputState);
+          if (this.mailMatch(target.value)) validate();else {
+            this.inputState[id] = 'invalid';
+            this.error = "Ton mail n'est pas valide";
+          }
           break;
       }
 
       this.inputState.day = document.querySelector('.checked') != null ? 'valid' : 'invalid';
+      if (!this.inputState.day) this.error = "N'oublie pas de cocher le.s jour.s avec lesquel.s tu seras avec nous !";
       this.checkInputState();
     }
   }, {
@@ -12937,13 +12952,14 @@ var FormHandler = /*#__PURE__*/function () {
         return true;
       } else {
         button.classList.add('disabled');
-        return false;
+        this.error = "test";
+        return this.error;
       }
     }
   }, {
     key: "textMatch",
     value: function textMatch(string) {
-      return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,}$/.test(string);
+      return /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{1,}$/.test(string);
     }
   }, {
     key: "numberMatch",
@@ -13013,6 +13029,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
   });
   document.querySelector('#switch').addEventListener('click', function () {
     document.querySelector('.inscription').classList.toggle('inscription--open');
+    document.querySelector('.ctaContainer').style.pointerEvents = "none";
     document.querySelector('#switch').remove();
   });
   document.querySelector('.programme').addEventListener('click', animations.programIn);
@@ -13071,7 +13088,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63057" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49458" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -607,6 +607,11 @@ template {
   transform: rotate(0deg) translate3d(0, 0, 0);
 }
 
+#invitation.is-onScreen {
+  top: 0 !important;
+  left: 0 !important;
+}
+
 #invitation {
   position: absolute;
   left: calc(100vw - 600px) !important;
@@ -615,7 +620,6 @@ template {
   width: 500px;
   font-size: 22px;
   background: #D0739F;
-  padding: 50px 0;
   font-family: Bellerose;
   color: white;
   line-height: 1.6rem;
@@ -633,7 +637,7 @@ template {
 @media (max-width: 800px) {
   #invitation {
     top: 0 !important;
-    left: 0 !important;
+    left: 150vw !important;
     width: 100%;
     height: 100%;
     height: calc(var(--vh, 1vh) * 100);
@@ -641,8 +645,8 @@ template {
 }
 #invitation p {
   margin: 0;
-  padding: 0 30px;
-  max-height: 70vh;
+  padding: 50px 30px;
+  max-height: 80%;
   overflow: scroll;
 }
 #invitation.invitation--hidden {
@@ -666,7 +670,7 @@ template {
   line-height: 40px;
   text-align: center;
   border-radius: 3px;
-  clip-path: circle(10px at 50% 90%);
+  clip-path: circle(0px at 50% 90%);
   transition: clip-path 0.4s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -821,6 +825,13 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 
 .programme {
   color: #D0739F;
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px 17px;
+  border-radius: 3px;
+  line-height: 50%;
 }
 
 .programme:hover {
@@ -852,28 +863,34 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   line-height: 140%;
   transition: all 0.1s;
 }
+@media (max-width: 600px) {
+  .programmeFirst {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
 
 #program {
   position: absolute;
-  height: 110%;
+  height: 110vh;
   width: 600px;
   left: calc(100vw - 600px) !important;
   top: -5% !important;
   background: white;
   border-radius: 3px;
   transition: left 0.5s ease-in-out;
-  overflow: auto;
-  padding-top: 200px;
+  overflow: hidden;
   box-shadow: -2px 0 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 #program header {
   background: linear-gradient(180deg, white 71.99%, rgba(255, 255, 255, 0));
-  position: fixed;
   overflow: visible;
   z-index: 1000;
   width: 595px;
-  height: 180px;
-  top: 0;
+  margin-bottom: 25px;
+  padding-top: 50px;
 }
 @media (max-width: 800px) {
   #program {
@@ -881,10 +898,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
     height: 100%;
     left: 0 !important;
     top: 0 !important;
-    padding-top: 120px;
-  }
-  #program header {
-    height: 100px;
+    margin-bottom: 0 !important;
   }
   #program * {
     font-size: 20px !important;
@@ -905,12 +919,16 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 
 #program nav {
   width: 85%;
-  height: 45px;
   font-family: "Bellerose";
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin-left: 20px;
+}
+#program nav p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #program nav p, #program nav sup {
   position: relative;
@@ -923,7 +941,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 }
 @media (max-width: 600px) {
   #program nav p, #program nav sup {
-    font-size: 14px !important;
+    font-size: 18px !important;
   }
 }
 #program nav p::after {
@@ -950,6 +968,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 
 .program--content {
   padding: 0 50px 100px 50px;
+  overflow: auto;
 }
 @media (max-width: 600px) {
   .program--content {
@@ -965,8 +984,6 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   font-family: Bellerose;
   font-size: 35px !important;
   text-align: center;
-  white-space: nowrap;
-  word-wrap: nowrap;
 }
 
 #program ul {
@@ -1003,7 +1020,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   position: absolute;
   z-index: 100;
   left: 5%;
-  top: 20px;
+  top: 60px;
   background: no-repeat url("/close.d336c031.svg");
   background-size: 40%;
   background-position: center;
@@ -1015,12 +1032,12 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 }
 @media (max-width: 800px) {
   .close--program {
-    bottom: 50px;
+    top: 20px;
   }
 }
 @media (max-width: 600px) {
   .close--program {
-    bottom: 20px;
+    top: 20px;
   }
 }
 
