@@ -13028,7 +13028,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
   });
   document.querySelector('#switch').addEventListener('click', function () {
     document.querySelector('.inscription').classList.toggle('inscription--open');
-    document.querySelector('.ctaContainer').style.pointerEvents = "none";
+    document.querySelector('.ctaContainer').style.display = "none";
     document.querySelector('#switch').remove();
   });
   document.querySelector('.programme').addEventListener('click', animations.programIn);

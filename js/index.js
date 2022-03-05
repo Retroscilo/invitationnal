@@ -6,7 +6,7 @@ import FormHandler from './lib/invitation.js';
 
   document.querySelector('#switch').addEventListener('click', () => {
     document.querySelector('.inscription').classList.toggle('inscription--open');
-    document.querySelector('.ctaContainer').style.pointerEvents = "none"
+    document.querySelector('.ctaContainer').style.display = "none"
     document.querySelector('#switch').remove();
   })
 
