@@ -900,11 +900,11 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   flex-direction: column;
 }
 #program header {
-  background: linear-gradient(180deg, white 71.99%, rgba(255, 255, 255, 0));
+  background: linear-gradient(180deg, white 92%, rgba(255, 255, 255, 0));
   overflow: visible;
   z-index: 1000;
   width: 595px;
-  margin-bottom: 25px;
+  padding-bottom: 25px;
   padding-top: 50px;
 }
 @media (max-width: 800px) {
@@ -944,6 +944,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 #program nav p {
   margin-left: 10px;
   margin-right: 10px;
+  font-weight: bold;
 }
 #program nav p, #program nav sup {
   position: relative;
@@ -984,6 +985,7 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 .program--content {
   padding: 0 50px 100px 50px;
   overflow: auto;
+  transform: translateY(-20px);
 }
 @media (max-width: 600px) {
   .program--content {
@@ -999,6 +1001,17 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   font-family: Bellerose;
   font-size: 35px !important;
   text-align: center;
+}
+
+#program h2 {
+  font-size: 22px;
+}
+
+a {
+  color: inherit;
+  display: block;
+  font-size: 18px;
+  margin-top: 5px;
 }
 
 #program ul {
@@ -1059,6 +1072,16 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 .close--program:hover {
   cursor: pointer;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.08);
+}
+
+iframe {
+  margin: auto;
+  outline: 1px solid #D0739F;
+  border-radius: 3px;
+  padding: 3px;
+  display: block;
+  width: 70vw;
+  max-width: 400px;
 }
 
 html {
