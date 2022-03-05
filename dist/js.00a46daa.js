@@ -11084,6 +11084,8 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime-corejs2/he
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Airtable = require('airtable');
+
 var FormHandler = /*#__PURE__*/function () {
   function FormHandler() {
     var _this = this;
@@ -11108,9 +11110,6 @@ var FormHandler = /*#__PURE__*/function () {
     }, {
       once: true
     });
-
-    var Airtable = require('airtable');
-
     Airtable.configure({
       endpointUrl: 'https://api.airtable.com',
       apiKey: 'keynxJ5aRc7cWp5cv'
@@ -11191,7 +11190,7 @@ var FormHandler = /*#__PURE__*/function () {
   }, {
     key: "numberMatch",
     value: function numberMatch(string) {
-      return /^(\+*[0-9\ \-]{10,})$/.test(string);
+      return true;
     }
   }, {
     key: "mailMatch",
@@ -11222,6 +11221,8 @@ var FormHandler = /*#__PURE__*/function () {
       this.base('Coming').create([{
         "fields": dataToSend
       }], function (err, records) {
+        console.log(records);
+
         if (err) {
           console.log(err);
           return;

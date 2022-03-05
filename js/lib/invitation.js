@@ -1,4 +1,5 @@
 "use strict";
+var Airtable = require('airtable');
 export default class FormHandler {
   inputState = {
     nom: 'invalid',
@@ -16,7 +17,6 @@ export default class FormHandler {
       else alert("Merci de vérifier que : \n - Ton nom est rempli \n - Ton prénom est bien indiqué \n - Ton mail est valide \n - Ton numéro de téléphone est valide \n - Tu nous as bien indiqué si tu venais le 23 Juillet")
     }, { once: true });
 
-    var Airtable = require('airtable');
     Airtable.configure({
       endpointUrl: 'https://api.airtable.com',
       apiKey: 'keynxJ5aRc7cWp5cv'
@@ -86,7 +86,7 @@ export default class FormHandler {
   }
 
   numberMatch(string) {
-    return /^(\+*[0-9\ \-]{10,})$/.test(string)
+    return true
   }
 
   mailMatch(string) {
@@ -117,6 +117,7 @@ export default class FormHandler {
         "fields": dataToSend
       },
     ], function (err, records) {
+      console.log(records)
       if (err) {
         console.log(err);
         return;
