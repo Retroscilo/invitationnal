@@ -816,13 +816,13 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   border-radius: 3px;
   text-align: center;
   line-height: 22px;
-  border: 1px solid #D0739F;
-  color: #D0739F;
-  background: white;
+  color: white;
+  background: #D0739F;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 
-.inscription .disabled {
+/* .inscription .disabled {
   border: 1px solid #D0739F;
   background: transparent;
   color: #D0739F;
@@ -832,13 +832,13 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 .inscription .button:not(.disabled):hover {
   cursor: pointer;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.19);
-}
+} 
 
 .inscription .button::not(.disabled):active {
   box-shadow: none;
-}
-
+} */
 .programme {
+  background-color: white;
   color: #D0739F;
   border: 1px solid;
   display: flex;
@@ -883,6 +883,11 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
   line-height: 140%;
   transition: all 0.1s;
   cursor: pointer;
+}
+
+.merci {
+  color: #D0739F;
+  font-size: 18px;
 }
 
 #program {
@@ -1004,14 +1009,24 @@ input[type=text]:not(:focus):valid, input[type=number]:not(:focus):valid, input[
 }
 
 #program h2 {
-  font-size: 32px;
+  font-size: 24px;
+  font-family: bellerose;
+}
+
+#program h3 {
+  font-size: 22px;
+  font-family: bellerose;
+}
+#program h3 span {
+  font-size: 14px;
 }
 
 a {
-  color: inherit;
-  display: block;
+  color: black;
+  display: inline-block;
   font-size: 22px;
   margin-top: 5px;
+  font-family: Bellerose;
 }
 
 #program ul {
@@ -1036,7 +1051,7 @@ a {
 }
 
 #program p, #program li {
-  font-size: 25px;
+  font-size: 22px;
   font-family: Bellerose;
   color: #000000;
 }

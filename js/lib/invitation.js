@@ -1,7 +1,4 @@
-import anime from 'animejs';
-
 "use strict";
-
 export default class FormHandler {
   inputState = {
     nom: 'invalid',
@@ -17,8 +14,8 @@ export default class FormHandler {
     document.querySelectorAll('input').forEach(node => this.watch(node));
 
     document.querySelector('.button').addEventListener('click', () => {
-      if (this.checkInputState()) this.sendData();
-      else alert(this.checkInputState())
+      if (this.checkInputState()) {this.sendData(); alert('Ton invitation à bien été envoyée')}
+      else alert("Merci de vérifier que : \n - Ton nom est rempli \n - Ton prénom est bien indiqué \n - Ton mail est valide \n - Ton numéro de téléphone est valide \n - Tu nous as bien indiqué si tu venais le 23 Juillet")
     });
 
     var Airtable = require('airtable');
@@ -46,35 +43,31 @@ export default class FormHandler {
       case 'nom':
         if (this.textMatch(target.value)) validate();
         else {
-          this.inputState[id] = 'invalid';
-          this.error = "Ton nom n'est pas valide"
+          this.inputState[id] = "Ton nom n'est pas valide";
         }
         break;
       case 'prenom':
         if (this.textMatch(target.value)) validate();
         else {
           this.inputState[id] = 'invalid';
-          this.error = "Ton prénom n'est pas valide"
         }
         break;
       case 'number':
         if (this.numberMatch(target.value)) validate();
         else {
           this.inputState[id] = 'invalid';
-          this.error = "Ton numéro de téléphone n'est pas valide"
         }
         break;
       case 'mail':
         if (this.mailMatch(target.value)) validate();
         else {
           this.inputState[id] = 'invalid';
-          this.error = "Ton mail n'est pas valide"
         }
         break;
     }
 
     this.inputState.day = (document.querySelector('.checked') != null) ? 'valid' : 'invalid';
-    if(!this.inputState.day) this.error = "N'oublie pas de cocher le.s jour.s avec lesquel.s tu seras avec nous !"
+    if(!this.inputState.day) alert("N'oublie pas de nous indiquer si tu seras avec nous !")
     this.checkInputState();
   }
 
@@ -87,7 +80,6 @@ export default class FormHandler {
     }
     else {
       button.classList.add('disabled');
-      this.error = "test"
       return this.error
     }
   }

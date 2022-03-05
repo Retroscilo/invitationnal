@@ -200,13 +200,13 @@ input[type="text"], input[type="number"], input[type="mail"] {
   border-radius: 3px;
   text-align: center;
   line-height: 22px;
-  border: 1px solid #D0739F;
-  color: #D0739F;
-  background: white;
+  color: white;
+  background: #D0739F;
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 
-.inscription .disabled {
+/* .inscription .disabled {
   border: 1px solid #D0739F;
   background: transparent;
   color: #D0739F;
@@ -220,9 +220,10 @@ input[type="text"], input[type="number"], input[type="mail"] {
 
 .inscription .button::not(.disabled):active {
   box-shadow: none;
-}
+} */
 
 .programme {
+  background-color: white;
   color: #D0739F;
   border: 1px solid;
   display: flex;
@@ -268,3 +269,7 @@ input[type="text"], input[type="number"], input[type="mail"] {
   cursor: pointer;
 }
 
+.merci {
+  color: #D0739F;
+  font-size: 18px;
+}

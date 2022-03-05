@@ -123,14 +123,25 @@
 }
 
 #program h2 {
-  font-size: 32px;
+  font-size: 24px;
+  font-family: bellerose;
+}
+
+#program h3 {
+  font-size: 22px;
+  font-family:  bellerose;
+
+  & span {
+    font-size: 14px;
+  }
 }
 
 a {
-  color: inherit;
-  display: block;
+  color: black;
+  display: inline-block;
   font-size: 22px;
   margin-top: 5px;
+  font-family: Bellerose;
 }
 
 #program ul {
@@ -155,7 +166,7 @@ a {
 }
 
 #program p, #program li {
-  font-size: 25px;
+  font-size: 22px;
   font-family: Bellerose;
   color: #000000;
 
