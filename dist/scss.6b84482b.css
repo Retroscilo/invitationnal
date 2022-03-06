@@ -397,7 +397,8 @@ template {
   #section0 .title {
     width: 21rem;
     height: 11rem;
-    left: 15px !important;
+    left: calc(50% - 10.5rem + 50px) !important;
+    transform: translateX(-50px);
   }
 }
 
@@ -694,6 +695,8 @@ template {
 @media (max-width: 600px) {
   .inscription {
     padding-bottom: 10vh;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
@@ -737,6 +740,7 @@ input::placeholder {
   input {
     font-family: arial !important;
     padding: 0 8px !important;
+    font-size: 18px;
   }
 }
 input[type=text],

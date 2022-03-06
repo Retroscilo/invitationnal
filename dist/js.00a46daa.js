@@ -29710,10 +29710,13 @@ var FormHandler = /*#__PURE__*/function () {
         document.querySelector(".successGGG").style.opacity = 1;
         setTimeout(function () {
           document.querySelectorAll("input").forEach(function (node) {
-            return node.style.display = "none";
+            node.style.visibility = "hidden";
+            node.style.pointerEvents = "none";
           });
-          document.querySelector(".radioContainer").style.display = "none";
-          document.querySelector(".button").style.display = "none";
+          document.querySelector(".radioContainer").style.pointerEvents = "none";
+          document.querySelector(".radioContainer").style.visibility = "hidden";
+          document.querySelector(".button").style.pointerEvents = "none";
+          document.querySelector(".button").style.visibility = "hidden";
         });
 
         _this.anim.play();
@@ -29820,7 +29823,7 @@ var FormHandler = /*#__PURE__*/function () {
   }, {
     key: "mailMatch",
     value: function mailMatch(string) {
-      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(string);
+      return true;
     }
   }, {
     key: "sendData",
@@ -29969,7 +29972,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60814" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52894" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

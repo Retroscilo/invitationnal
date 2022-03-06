@@ -105,9 +105,11 @@ export default class FormHandler {
       setTimeout(() => {
         document
           .querySelectorAll("input")
-          .forEach((node) => node.style.display = "none");
-        document.querySelector(".radioContainer").style.display = "none";
-        document.querySelector(".button").style.display = "none";
+          .forEach((node) => {node.style.visibility = "hidden"; node.style.pointerEvents = "none"});
+        document.querySelector(".radioContainer").style.pointerEvents = "none";
+        document.querySelector(".radioContainer").style.visibility = "hidden";
+        document.querySelector(".button").style.pointerEvents = "none";
+        document.querySelector(".button").style.visibility = "hidden";
       });
 
       this.anim.play();
@@ -134,7 +136,7 @@ export default class FormHandler {
   }
 
   mailMatch(string) {
-    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(string);
+    return true;
   }
 
   sendData() {
