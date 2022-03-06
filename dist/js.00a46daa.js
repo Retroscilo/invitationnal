@@ -29708,6 +29708,13 @@ var FormHandler = /*#__PURE__*/function () {
         document.querySelector(".radioContainer").classList.add("fadeOut");
         document.querySelector(".button").classList.add("fadeOut");
         document.querySelector(".successGGG").style.opacity = 1;
+        setTimeout(function () {
+          document.querySelectorAll("input").forEach(function (node) {
+            return node.style.display = "none";
+          });
+          document.querySelector(".radioContainer").style.display = "none";
+          document.querySelector(".button").style.display = "none";
+        });
 
         _this.anim.play();
 

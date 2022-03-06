@@ -102,12 +102,20 @@ export default class FormHandler {
       document.querySelector(".radioContainer").classList.add("fadeOut");
       document.querySelector(".button").classList.add("fadeOut");
       document.querySelector(".successGGG").style.opacity = 1;
+      setTimeout(() => {
+        document
+          .querySelectorAll("input")
+          .forEach((node) => node.style.display = "none");
+        document.querySelector(".radioContainer").style.display = "none";
+        document.querySelector(".button").style.display = "none";
+      });
 
       this.anim.play();
       anim.play();
       document
         .querySelector(".button")
         .removeEventListener("click", this.clickHandler);
+
       document.querySelector(".button").classList.add("isSubmitted");
     } else
       alert(
