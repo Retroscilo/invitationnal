@@ -1,0 +1,19 @@
+#invitation.invitation--hidden.layer(data-depth="0.3")
+  p Nous sommes heureux de vous inviter au pays de la truffe noire pour une merveilleuse occasion... notre Union Sacrée ! <br><br> Nous souhaitons officialiser notre amour avec toutes les personnes qui nous sont chères. <br><br> Cet événement aura lieu le samedi 23 juillet 2022, de 14h jusqu'au bout de la nuit, au Domaine de la Sarmade, dans le petit village de Grand-Castang. <br> <br> Nous espérons que vous réserverez votre weekend escapade pour être à nos côtés ! <br> <br> Loïc et Audrey
+  .inscription 
+    input#nom(type="text" placeholder="Nom" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,}" title="Only letters" spell-check="false" required)
+    input#prenom(type="text" placeholder="Prénom" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{3,}" spell-check="false" required)
+    input#number(type="text" placeholder="Téléphone" pattern="[0-9- ]{10,}" spell-check="false" required)
+    input#mail(type="mail" placeholder="Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" spell-check="false" required)
+    .title Je serai avec vous le.s :
+    .group.radioContainer
+      .radio(data-value="29") Mardi 29 Juin
+      .radio(data-value="30") Mercredi 30 Juin
+      .radio(data-value="01") Jeudi 1<sup>er</sup> Juillet
+    .programme voir le programme
+    .button.disabled S'inscrire
+  .ctaContainer
+    .programmeFirst Détails sur l'événement
+    #switch Je réponds !
+  //  form.visible
+      

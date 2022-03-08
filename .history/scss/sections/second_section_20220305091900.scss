@@ -1,0 +1,106 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
+
+/* .cover {
+  background: #D0739F;
+  width: 150vw;
+  height: 150vh;
+  position: absolute;
+  left: 50%;
+  height: 50%;
+  transform: translate(-50%);
+  z-index: -10;
+} */
+
+
+
+#section1 {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: #D0739F;
+  font-family: 'Cormorant', sans-serif;
+  font-weight: light;
+  font-style: normal;
+  font-size: 56px;
+}
+
+$width: 100vw;
+$height: 90vh;
+.background {
+  position: absolute;
+  opacity: 0;
+  top: -10rem;
+  left: calc(50% - #{$width/2});
+  background: no-repeat url('./../ressources/second_section/background.jpg');
+  width: $width !important; 
+  height: $height !important;
+  background-size: cover;
+  transition: opacity 0.3s;
+}
+
+.background--visible {
+  opacity: 1 !important;
+}
+
+$width: 120vw;
+$height: 47vh;
+.foreground {
+  position: absolute;
+  left: calc(50% - #{$width/2}) !important;
+  top: calc(102vh - #{$height}) !important;
+  background: no-repeat url('./../ressources/second_section/foreground.png');
+  width: $width !important;
+  height: $height !important;
+  background-size: cover;
+}
+
+.subject {
+  background: no-repeat url('./../ressources/second_section/subjects--mobile.png');
+  will-change: transform;
+  width: 18rem;
+  height: 44rem;
+  top: calc(100vh - 42rem) !important;
+  left: calc(50% - 22vw) !important;
+  position: absolute;
+  background-size: cover;
+  transition: transform 0.3s cubic-bezier(.99,.9,.8,1.12);
+  transform: translate3d(0, 0, 0) rotate(-90deg);
+  transform-origin: bottom;
+
+  @include desktop {
+    width: 15rem;
+    height: 40rem;
+    top: calc(100vh - 38rem) !important;
+    left: calc(50% - 20rem) !important;
+  }
+
+  @include desktop--S {
+    width: 15rem;
+    height: 40rem;
+    top: calc(100vh - 38rem) !important;
+    left: calc(50% - 15rem) !important;
+  }
+
+  @include tablet {
+    width: 13rem;
+    height: 35rem;
+    top: calc(100vh - 32rem) !important;
+    left: calc(50% - 8rem) !important;
+  }
+
+  @include phone {
+    width: 8rem;
+    height: 22rem;
+    top: calc(100vh - 20rem) !important;
+    left: calc(50%) !important;
+  }
+}
+
+.subject--rotated {
+  transform: rotate(0deg) translate3d(0, 0, 0);
+}

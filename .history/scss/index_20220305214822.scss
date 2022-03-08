@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Bellerose";
+  src: url('../ressources/Bellerose.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  src: url('../ressources/CormorantGaramond-Light.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin phone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin desktop--S {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: 1920px) {
+    @content;
+  }
+}
+
+
+@import './sections/first_section.sass';
+@import './normalize.css';
+@import './sections/second_section.scss';
+@import './elements/invitation.scss';
+@import './elements/program.scss';
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(#D1FEF6, #FDEB9B 10%);
+  position: relative;
+}
+
+body::before {
+  content: '';
+  display: inline-block;
+  width: 300vw;
+  height: 300vh;
+  position: absolute;
+  top: calc(50% - 150vh);
+  left: calc(50% - 150vw);
+  transition: all 0.6s ease-in-out;
+  background-image: linear-gradient(#D1FEF6 30%, #FDEB9B 40%, #3568b6 70%, rgba(0, 0, 0, 0) 90%);
+  transform-origin: center;
+}
+
+.body--pink::before {
+  transform: translateY(-100vh);
+}
+
+.discover {
+  z-index: 99;
+  opacity: 0;
+  position: absolute;
+  left: 50%; top: 65%;
+  transform: translate(-50%);
+  width: 170px;
+  height: 60px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 35px;
+  font-family: Bellerose;
+  color: white;
+  background: #D0739F;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px rgba($color: #000000, $alpha: 0.2);
+  animation: discoverFadeIn 2s forwards;
+}
+
+@keyframes discoverFadeIn {
+  80% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.discover:hover {
+  cursor: pointer;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #D0739F;
+  z-index: 99999;
+  transition: opacity .4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

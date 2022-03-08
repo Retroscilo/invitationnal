@@ -973,6 +973,11 @@ input[type=mail]:not(:focus):valid {
   padding-top: 50px;
 }
 @media (max-width: 800px) {
+  #program header {
+    padding-top: 20px;
+  }
+}
+@media (max-width: 800px) {
   #program {
     width: 100%;
     height: 100%;
@@ -1066,6 +1071,11 @@ input[type=mail]:not(:focus):valid {
   font-family: Bellerose;
   font-size: 35px !important;
   text-align: center;
+}
+@media (max-width: 600px) {
+  #program h1 {
+    margin: 0;
+  }
 }
 
 #program h2 {
