@@ -1173,6 +1173,10 @@ p {
   text-align: left !important;
 }
 
+#program a {
+  line-height: 200%;
+}
+
 html {
   width: 100vw;
   height: 100vh;
